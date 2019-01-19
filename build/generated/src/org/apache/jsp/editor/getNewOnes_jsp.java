@@ -1,0 +1,736 @@
+package org.apache.jsp.editor;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import com.javaeddy.userBean;
+
+public final class getNewOnes_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_varStatus_var_items;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_varStatus_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_varStatus_var_items.release();
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"UTF-8\" />\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n");
+      out.write("        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\" />\n");
+      out.write("    <link rel=\"stylesheet\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/bootstrap-4.1.3-dist/css/bootstrap.min.css\"/>\n");
+      out.write("    <link rel=\"stylesheet\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/CSS/myStyle.css\"/>\n");
+      out.write("    <title>Akademik Makale Yönetim Sistemi</title>\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("<body class=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${themeObject.BODY_BACKGROUND}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    ");
+
+        userBean ub = (userBean) request.getSession().getAttribute("user_bean");
+        if (ub == null) {
+            response.sendRedirect(request.getContextPath() + "/forbidden.jsp");
+        } else if (!ub.getType().equals("editor")) {
+            response.sendRedirect(request.getContextPath() + "/forbidden.jsp");
+        }
+    
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark rounded fixed-top\">\n");
+      out.write("        <a class=\"navbar-brand\" href=\"#\">MAKALE YÖNETİM SİSTEMİ</a>\n");
+      out.write("        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n");
+      out.write("            <span class=\"navbar-toggler-icon\"></span>\n");
+      out.write("        </button>\n");
+      out.write("\n");
+      out.write("        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n");
+      out.write("            <ul class=\"navbar-nav mr-auto\">\n");
+      out.write("                <li class=\"nav-item\">\n");
+      out.write("                    <a class=\"nav-link\" href=\"servletFileUpload?getFinalFiles=home\">Ana Sayfa<span class=\"sr-only\">(current)</span></a>\n");
+      out.write("                </li>\n");
+      out.write("                <li class=\"nav-item\">\n");
+      out.write("                    <a class=\"nav-link\" href=\"servletFileUpload?getFinalFiles=archive\">arşiv</a>\n");
+      out.write("                </li>\n");
+      out.write("                <li class='nav-item active'>\n");
+      out.write("                    <a class='nav-link' href='");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint?Select=AllEditorWaiting'>\n");
+      out.write("                        Makale yönetim\n");
+      out.write("                    </a>\n");
+      out.write("                </li>\n");
+      out.write("                <li class='nav-item'>\n");
+      out.write("                    <a class='nav-link' href='");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletUserDataController?selectUser=newbies'>\n");
+      out.write("                        Kullanıcı Yönetim\n");
+      out.write("                    </a>\n");
+      out.write("                </li>\n");
+      out.write("            </ul>\n");
+      out.write("            <div class=\"form-inline my-2 my-lg-0\" style=\"padding-right: 5%;\">\n");
+      out.write("                <ul class=\"nav mr-auto\">\n");
+      out.write("                    <li class=\"nav-item dropdown \">\n");
+      out.write("                        <a class=\"btn btn-dark nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n");
+      out.write("                            ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user_bean.username}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\n");
+      out.write("                        </a>\n");
+      out.write("                        <div class=\"dropdown-menu dropdown-menu-right bg-dark text-white\" aria-labelledby=\"navbarDropdown\">\n");
+      out.write("                            <a class=\"dropdown-item bg-dark text-white\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/editor/profile.jsp\">Profili Düzenle</a>\n");
+      out.write("                            <div class=\"dropdown-divider\" ></div>\n");
+      out.write("                            <form action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint\" method=\"post\">\n");
+      out.write("                                <button name=\"btn_Logout\" class=\"btn btn-outline-danger my-2 my-sm-0\" type=\"submit\" style=\"float:right;\">Çıkış</button>\n");
+      out.write("                            </form>\n");
+      out.write("                        </div>\n");
+      out.write("                    </li>\n");
+      out.write("                </ul>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </nav>\n");
+      out.write("\n");
+      out.write("    <!-- ==================TEMA==================-->\n");
+      out.write("<div class=\"\" style='text-align: right;'>\n");
+      out.write("    <input type=\"button\"  id=\"changeColor\" class='btn btn-dark' value='Night Mode is Off'/>\n");
+      out.write("</div>\n");
+      out.write("<!-- ==================BUTTTONLAR==================-->\n");
+      out.write("<span id=\"SlectedButtonSpan\" style=\"display:none;\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${SelectedButton}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("<div class=\"container\" style=\"text-align: center\">\n");
+      out.write("    <a class=\"btn btn-primary\" id=\"btn_YeniGelen\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint?Select=AllEditorWaiting\">\n");
+      out.write("        Yeni Gelenler\n");
+      out.write("        <span class=\"badge badge-warning badge-pill\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${FileNumber1}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("    </a>\n");
+      out.write("    <a class=\"btn btn-info\" id=\"btn_HeyetBekleyen\"  name =\"\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint?Select=AllJuryWaiting\">\n");
+      out.write("        Heyet Onayı Bekleyenler\n");
+      out.write("        <span class=\"badge badge-warning badge-pill\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${FileNumber2}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("    </a>\n");
+      out.write("    <a class=\"btn btn-success\" id=\"btn_Onaylanmis\" name =\"\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint?Select=Published\">\n");
+      out.write("        Yayınlanmış\n");
+      out.write("        <span class=\"badge badge-warning badge-pill\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${FileNumber3}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("    </a>\n");
+      out.write("    <a class=\"btn btn-danger\" id=\"btn_Reddedilmis\" name =\"\" href=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletControlPoint?Select=EditorRejected\">\n");
+      out.write("        Reddedilmiş\n");
+      out.write("        <span class=\"badge badge-warning badge-pill\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${FileNumber4}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("    </a>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!-- ==================SONUÇLAR==================-->\n");
+      out.write("<span>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${NoResults}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("<div class=\"accordion  \" id=\"accordionExample\" style=\"width:90%; margin:0 auto; padding:5%;\">                \n");
+      out.write("    ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<div style=\"padding: 12em;\"></div>\n");
+      out.write("<!-- ================SCRIPTS=================-->\n");
+      out.write("<script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/JS/jquery-3.3.1.js\" ></script>\n");
+      out.write("<script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/bootstrap-4.1.3-dist/popper.min.js\"></script>\n");
+      out.write("<script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/bootstrap-4.1.3-dist/js/bootstrap.min.js\"></script>\n");
+      out.write("<-- Jquery'de animate fonksiyonuna renk değiştirme özelliği eklemek için-->\n");
+      out.write("<script src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/JS/jquery.color-2.1.2\"></script>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<script>\n");
+      out.write("//buton basılı gösterme efekti\n");
+      out.write("                                                    $(document).ready(\n");
+      out.write("                                                            function () {\n");
+      out.write("                                                                if ($(\"#SlectedButtonSpan\").text() === \"YeniGelen\") {\n");
+      out.write("                                                                    $(\"#btn_YeniGelen\").addClass(\"active\");\n");
+      out.write("                                                                } else if ($(\"#SlectedButtonSpan\").text() === \"HeyetOnayiBekleyen\") {\n");
+      out.write("                                                                    $(\"#btn_HeyetBekleyen\").addClass(\"active\");\n");
+      out.write("                                                                } else if ($(\"#SlectedButtonSpan\").text() === \"Onaylanmis\") {\n");
+      out.write("                                                                    $(\"#btn_Onaylanmis\").addClass(\"active\");\n");
+      out.write("                                                                } else if ($(\"#SlectedButtonSpan\").text() === \"Reddedilmis\") {\n");
+      out.write("                                                                    $(\"#btn_Reddedilmis\").addClass(\"active\");\n");
+      out.write("                                                                }\n");
+      out.write("                                                            }\n");
+      out.write("                                                    );\n");
+      out.write("                                                    //Jüri seçim kutusunu göster/gizle\n");
+      out.write("                                                    function hideJury(idIndex) {\n");
+      out.write("                                                        $(\"#jurySelectionContainer\" + idIndex).slideUp();\n");
+      out.write("                                                        // document.getElementById(\"jurySelectionContainer\").style.display = \"none\";\n");
+      out.write("\n");
+      out.write("                                                    }\n");
+      out.write("                                                    function showJury(idIndex) {\n");
+      out.write("                                                        $(\"#jurySelectionContainer\" + idIndex).slideDown();\n");
+      out.write("                                                    }\n");
+      out.write("\n");
+      out.write("//-------------------------arka plan rengini değiştir\n");
+      out.write("                                                    //Ready ile eşdeğer:\n");
+      out.write("//                                                    $(function controlTheme() {\n");
+      out.write("//                                                        if ($(\"#NightModeValue\").text() === \"true\") {\n");
+      out.write("//                                                            nightOn();\n");
+      out.write("//                                                        } else if ($(\"#NightModeValue\").text() === \"false\") {\n");
+      out.write("//                                                            nightOff();\n");
+      out.write("//                                                        }\n");
+      out.write("//                                                    });\n");
+      out.write("                                                    //-----aydınlık\n");
+      out.write("                                                    function nightOff() {\n");
+      out.write("                                                        //body\n");
+      out.write("                                                        $('body').removeClass('dark-theme');\n");
+      out.write("                                                        $('body').addClass('light-theme');\n");
+      out.write("                                                        //card\n");
+      out.write("                                                        $('.card').removeClass('text-white bg-dark');\n");
+      out.write("                                                        //modal content\n");
+      out.write("                                                        $(\".modal-content\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //textarea's\n");
+      out.write("                                                        $(\"#editorComment\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                        $(\"#juryComment\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //jury select\n");
+      out.write("                                                        $(\".jurySelection\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //comment button\n");
+      out.write("                                                        $(\".yorumButonu\").removeClass(\"btn-secondary\");\n");
+      out.write("                                                        $(\".yorumButonu\").addClass(\"btn-primary\");\n");
+      out.write("                                                        //toggle button\n");
+      out.write("                                                        $(\".cardButonu\").addClass(\"btn-success\");\n");
+      out.write("                                                        $(\".cardButonu\").removeClass(\"btn-secondary\");\n");
+      out.write("                                                        //file button\n");
+      out.write("                                                        $(\".dosyaButonu\").removeClass(\"btn-dark\");\n");
+      out.write("                                                        $(\".dosyaButonu\").addClass(\"btn-light\");\n");
+      out.write("                                                        //theme button\n");
+      out.write("                                                        $(\"#changeColor\").val(\"Night Mode is Off\");\n");
+      out.write("                                                        $(\"#changeColor\").addClass(\"btn-dark\");\n");
+      out.write("                                                        $(\"#changeColor\").removeClass(\"btn-light\");\n");
+      out.write("                                                    }\n");
+      out.write("                                                    //----karanlık\n");
+      out.write("                                                    function nightOn() {\n");
+      out.write("//body\n");
+      out.write("                                                        $('body').addClass('dark-theme');\n");
+      out.write("                                                        $('body').removeClass('light-theme');\n");
+      out.write("                                                        //card\n");
+      out.write("                                                        $('.card').addClass('text-white bg-dark');\n");
+      out.write("                                                        //modal content\n");
+      out.write("                                                        $(\".modal-content\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //textarea's\n");
+      out.write("                                                        $(\"#editorComment\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                        $(\"#juryComment\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //jury select\n");
+      out.write("                                                        $(\".jurySelection\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                        //comment button\n");
+      out.write("                                                        $(\".yorumButonu\").addClass(\"btn-secondary\");\n");
+      out.write("                                                        $(\".yorumButonu\").removeClass(\"btn-primary\");\n");
+      out.write("                                                        //toggle button\n");
+      out.write("                                                        $(\".cardButonu\").removeClass(\"btn-success\");\n");
+      out.write("                                                        $(\".cardButonu\").addClass(\"btn-secondary\");\n");
+      out.write("                                                        //file button\n");
+      out.write("                                                        $(\".dosyaButonu\").addClass(\"btn-dark\");\n");
+      out.write("                                                        $(\".dosyaButonu\").removeClass(\"btn-light\");\n");
+      out.write("                                                        //theme button\n");
+      out.write("                                                        $(\"#changeColor\").val(\"Night Mode is On\");\n");
+      out.write("                                                        $(\"#changeColor\").addClass(\"btn-ligt\");\n");
+      out.write("                                                        $(\"#changeColor\").removeClass(\"btn-dark\");\n");
+      out.write("                                                    }\n");
+      out.write("                                                    function changeThemeValue(attrbute) {\n");
+      out.write("                                                        $.get('http://");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.serverName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write(':');
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.localPort}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/servletThemeSet?NightModeValue=' + attrbute);\n");
+      out.write("                                                    }\n");
+      out.write("                                                    jQuery(document).ready(\n");
+      out.write("                                                            //When ThemeButton Click\n");
+      out.write("                                                                    function () {\n");
+      out.write("                                                                        jQuery('#changeColor').click(\n");
+      out.write("                                                                                function () {\n");
+      out.write("                                                                                    //make light\n");
+      out.write("                                                                                    if ($('body').hasClass('dark-theme')) {\n");
+      out.write("                                                                                        //body\n");
+      out.write("                                                                                        $('body').removeClass('dark-theme');\n");
+      out.write("                                                                                        $('body').addClass('light-theme');\n");
+      out.write("                                                                                        //card\n");
+      out.write("                                                                                        $('.card').removeClass('text-white bg-dark');\n");
+      out.write("                                                                                        //modal content\n");
+      out.write("                                                                                        $(\".modal-content\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //textarea's\n");
+      out.write("                                                                                        $(\"#editorComment\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        $(\"#juryComment\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //jury select\n");
+      out.write("                                                                                        $(\".jurySelection\").removeClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //comment button\n");
+      out.write("                                                                                        $(\".yorumButonu\").removeClass(\"btn-secondary\");\n");
+      out.write("                                                                                        $(\".yorumButonu\").addClass(\"btn-primary\");\n");
+      out.write("                                                                                        //toggle button\n");
+      out.write("                                                                                        $(\".cardButonu\").addClass(\"btn-success\");\n");
+      out.write("                                                                                        $(\".cardButonu\").removeClass(\"btn-secondary\");\n");
+      out.write("                                                                                        //file button\n");
+      out.write("                                                                                        $(\".dosyaButonu\").removeClass(\"btn-dark\");\n");
+      out.write("                                                                                        $(\".dosyaButonu\").addClass(\"btn-light\");\n");
+      out.write("                                                                                        //theme button\n");
+      out.write("                                                                                        $(\"#changeColor\").val(\"Night Mode is Off\");\n");
+      out.write("                                                                                        $(\"#changeColor\").addClass(\"btn-dark\");\n");
+      out.write("                                                                                        $(\"#changeColor\").removeClass(\"btn-light\");\n");
+      out.write("                                                                                        //call the servlet and set the attriute on session level\n");
+      out.write("                                                                                        changeThemeValue(false);\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                                                                                        //make dark\n");
+      out.write("                                                                                    } else {\n");
+      out.write("                                                                                        //body\n");
+      out.write("                                                                                        $('body').addClass('dark-theme');\n");
+      out.write("                                                                                        $('body').removeClass('light-theme');\n");
+      out.write("                                                                                        //card\n");
+      out.write("                                                                                        $('.card').addClass('text-white bg-dark');\n");
+      out.write("                                                                                        //modal content\n");
+      out.write("                                                                                        $(\".modal-content\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //textarea's\n");
+      out.write("                                                                                        $(\"#editorComment\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        $(\"#juryComment\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //jury select\n");
+      out.write("                                                                                        $(\".jurySelection\").addClass(\"bg-dark text-white\");\n");
+      out.write("                                                                                        //comment button\n");
+      out.write("                                                                                        $(\".yorumButonu\").addClass(\"btn-secondary\");\n");
+      out.write("                                                                                        $(\".yorumButonu\").removeClass(\"btn-primary\");\n");
+      out.write("                                                                                        //toggle button\n");
+      out.write("                                                                                        $(\".cardButonu\").removeClass(\"btn-success\");\n");
+      out.write("                                                                                        $(\".cardButonu\").addClass(\"btn-secondary\");\n");
+      out.write("                                                                                        //file button\n");
+      out.write("                                                                                        $(\".dosyaButonu\").addClass(\"btn-dark\");\n");
+      out.write("                                                                                        $(\".dosyaButonu\").removeClass(\"btn-light\");\n");
+      out.write("                                                                                        //theme button\n");
+      out.write("                                                                                        $(\"#changeColor\").val(\"Night Mode is On\");\n");
+      out.write("                                                                                        $(\"#changeColor\").addClass(\"btn-ligt\");\n");
+      out.write("                                                                                        $(\"#changeColor\").removeClass(\"btn-dark\");\n");
+      out.write("                                                                                        //call the servlet and set the attriute on session level\n");
+      out.write("                                                                                        changeThemeValue(true);\n");
+      out.write("                                                                                    }\n");
+      out.write("                                                                                }\n");
+      out.write("                                                                        );\n");
+      out.write("                                                                    }\n");
+      out.write("                                                            );\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("</script>\n");
+      out.write("<span style='display:none' id='NightModeValue'>");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.NightModeValue}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</span>\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${fileListAttribute}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("item");
+    _jspx_th_c_forEach_0.setVarStatus("LoopIndex");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("\n");
+          out.write("        <div class=\"card\">\n");
+          out.write("            <div class=\"card-header\" id=\"headingOne\"><!-- for cntering!!! margin:0 auto;float:none;-->\n");
+          out.write("                <h5 class=\"mb-0\">\n");
+          out.write("                    <button\n");
+          out.write("                        class=\"btn btn-success btn-sm cardButonu\"\n");
+          out.write("                        type=\"button\"\n");
+          out.write("                        data-toggle=\"collapse\"\n");
+          out.write("                        data-target=\"#collapseOne");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"\n");
+          out.write("                        aria-expanded=\"true\"\n");
+          out.write("                        aria-controls=\"collapseOne\",\n");
+          out.write("\n");
+          out.write("                        >\n");
+          out.write("                        ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getName()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\n");
+          out.write("                    </button>\n");
+          out.write("                </h5>\n");
+          out.write("            </div>\n");
+          out.write("\n");
+          out.write("            <div\n");
+          out.write("                id=\"collapseOne");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"\n");
+          out.write("                class=\"collapse show grid-container\"\n");
+          out.write("                aria-labelledby=\"headingOne\"\n");
+          out.write("                data-parent=\"#accordionExample\"\n");
+          out.write("\n");
+          out.write("                >\n");
+          out.write("\n");
+          out.write("                <!-- ============================Document View MODAL -->\n");
+          out.write("                <div class=\"whole-modal grid-item\" style=\"display: inline-grid;grid-template-columns: 60% 40%;\">\n");
+          out.write("                    <button type=\"button\" class=\"btn btn-light  dosyaButonu\" data-toggle=\"modal\" data-target=\"#DocumentViewModal");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                        <img src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/images/icons8-document-500px.svg\" title=\"Dosyayı Görüntüle\" class=\"img-thumbnail rounded\" style=\"max-width:100px;\"/>\n");
+          out.write("                        <br>Dosyayı Görüntüle\n");
+          out.write("                    </button>\n");
+          out.write("\n");
+          out.write("                    <div class=\"modal fade bd-example-modal-lg-deneme\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myLargeModalLabel\" aria-hidden=\"true\" id=\"DocumentViewModal");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                        <div class=\"modal-dialog modal-lg\">\n");
+          out.write("                            <div class=\"modal-content\" style=\"height: 500px;\">\n");
+          out.write("                                <div class=\"modal-header\">\n");
+          out.write("                                    <h6 class=\"modal-title\" id=\"exampleModalLongTitle\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getName()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</h6>\n");
+          out.write("                                    <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n");
+          out.write("                                        <span aria-hidden=\"true\">&times;</span>\n");
+          out.write("                                    </button>\n");
+          out.write("                                </div>\n");
+          out.write("                                <object style=\"width:100%;height: 100%;\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/servletFileUpload?Stream=Embed&filePath=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getFilePath()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                                    <embed style=\"width:100%;height: 100%;\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/servletFileUpload?Stream=Embed&filePath=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getFilePath()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"></embed>\n");
+          out.write("                                </object>\n");
+          out.write("                            </div>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                    <div class=\"container\">\n");
+          out.write("                        <a href=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/servletFileUpload?Stream=Download&filePath=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getFilePath()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" title=\"Dosyayı indir\">\n");
+          out.write("                            <img src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/images/download_light-grey.svg\" style=\"max-height: 15px;\"/>\n");
+          out.write("                        </a>\n");
+          out.write("                    </div>               \n");
+          out.write("                </div>\n");
+          out.write("                <!-- ============================ORTA KISIM, Dosya Bilgileri / middle section file information-->\n");
+          out.write("\n");
+          out.write("                <div style=\"\">\n");
+          out.write("                    <!-- BAŞLIK -->\n");
+          out.write("                    <span style=\"display: inline-grid;grid-template-columns: 100%;width:100%; height: 2em;text-align: center;\">\n");
+          out.write("                        <label style=\"\">Dosya Bilgileri:</label>\n");
+          out.write("                    </span>\n");
+          out.write("                    <!-- GÖVDE -->\n");
+          out.write("                    <div  style=\"display: table;align-items: center;margin: auto; padding:5px;\">\n");
+          out.write("                        <div style=\"display:table-row;\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <!-- ----------yazar---------- -->\n");
+          out.write("                        <div style=\"display: table-row;\">\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">Yazar Adı:</label>\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getWriterData().getUsername()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</label>\n");
+          out.write("                        </div>\n");
+          out.write("                        <div style=\"display: table-row;\">\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">Yazar Email:</label>\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getWriterData().getEmail()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</label>\n");
+          out.write("                        </div>\n");
+          out.write("\n");
+          out.write("                        <div style=\"display:table-row;\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <!-- ----------jüri---------- -->\n");
+          out.write("                        <div style=\"display: table-row;\">\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">Heyet Adı:</label>\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getJuryData().getUsername()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</label>\n");
+          out.write("                        </div>\n");
+          out.write("                        <div style=\"display: table-row;\">\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">Heyet Email:</label>\n");
+          out.write("                            <label style=\"display: table-cell;\" class=\"px-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getJuryData().getEmail()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</label>\n");
+          out.write("                        </div>\n");
+          out.write("                        <div style=\"display:table-row;\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                            <hr style=\"display: table-cell; background-color: #dadada\">\n");
+          out.write("                        </div>\n");
+          out.write("                        <!-- ----------tarih---------- -->\n");
+          out.write("                        <div style=\"display:table-row;\">\n");
+          out.write("                            <label style=\"display:table-cell;\" class=\"px-1\">Gönderilme Zamanı(UTC):</label>\n");
+          out.write("                            <label style=\"display:table-cell;;padding-right: 4px;padding-bottom: 4px;\" class=\"px-1\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getSendingDate()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(" UTC</label>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
+          out.write("\n");
+          out.write("                <!-- ============================COMMENT View MODAL style=\"border:2px solid black;\"-->\n");
+          out.write("                <div class=\"whole-modal grid-item\" style=\"position:absolute;bottom:0; right:0;\" >\n");
+          out.write("                    <!-- Button trigger modal -->\n");
+          out.write("                    <button type=\"button\" class=\" yorumButonu btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalCenter");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("                        Yorumları Göster/Düzenle\n");
+          out.write("                    </button>\n");
+          out.write("\n");
+          out.write("                    <!-- Modal -->\n");
+          out.write("                    <div class=\"modal fade\" id=\"exampleModalCenter");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">\n");
+          out.write("                        <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\n");
+          out.write("                            <div class=\"modal-content\">\n");
+          out.write("                                <form action=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("/servletControlPoint\" method=\"post\">\n");
+          out.write("                                    <div class=\"modal-header\">\n");
+          out.write("                                        <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">Yorumlar</h5>\n");
+          out.write("                                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n");
+          out.write("                                            <span aria-hidden=\"true\">&times;</span>\n");
+          out.write("                                        </button>\n");
+          out.write("                                    </div>\n");
+          out.write("                                    <div class=\"modal-body\">\n");
+          out.write("                                        <div class=\"card-body\" style=\"text-align: center;\">\n");
+          out.write("                                            <label for=\"editorComment\">EDITOR COMMENT:</label><br>\n");
+          out.write("                                            <textarea class=\"form-control\"  id=\"editorComment\" name=\"editorComment\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getEditorComments()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</textarea><br>\n");
+          out.write("                                            <label for=\"juryComment\">JURY COMMENT:</label><br>\n");
+          out.write("                                            <textarea class=\"form-control\"  id=\"juryComment\" readonly>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getJuryComments()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</textarea>\n");
+          out.write("\n");
+          out.write("                                        </div>\n");
+          out.write("\n");
+          out.write("                                        <!-- CheckBox Kısmı KABUL VE RED ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("-->\n");
+          out.write("                                        <div class=\"container form-check-inline\">    \n");
+          out.write("                                            <div class=\"custom-control custom-radio btn btn-success mx-5\">\n");
+          out.write("                                                <input type=\"radio\" id=\"RadioKabul");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" name=\"editorStatusFile\" value=\"confirmed\" class=\"custom-control-input\" onClick=\"showJury(");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(")\"/>\n");
+          out.write("                                                <label class=\"custom-control-label \" for=\"RadioKabul");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">KABUL ET</label>\n");
+          out.write("                                            </div>\n");
+          out.write("                                            <div class=\"custom-control custom-radio btn btn-danger mx-5\">\n");
+          out.write("                                                <!-- mx anlamı x ekseninde(sağve sol) margin ekle 0-5 arası 0-3em arası margin ekliyor https://getbootstrap.com/docs/4.1/utilities/spacing/-->\n");
+          out.write("                                                <input type=\"radio\" id=\"RadioRet");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" name=\"editorStatusFile\" value=\"rejected\" class=\"btn custom-control-input\" onClick=\"hideJury(");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(")\">\n");
+          out.write("                                                    <label class=\"custom-control-label\" for=\"RadioRet");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">REDDET</label>\n");
+          out.write("                                            </div>\n");
+          out.write("                                        </div>\n");
+          out.write("\n");
+          out.write("                                        <!-- JURI SELECTION KISMI -->\n");
+          out.write("                                        <div class=\"container\" id=\"jurySelectionContainer");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${LoopIndex.count}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" style=\"text-align: left; display:none;\">\n");
+          out.write("                                            <label for=\"jurySelection\">Juriyi Seç</label>\n");
+          out.write("                                            <select name=\"juryMember\" id=\"jurySelection\" class=\"jurySelection custom-select\">\n");
+          out.write("                                                <option value=\"null\">Seçilmedi</option>\n");
+          out.write("                                                ");
+          if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
+          out.write("\n");
+          out.write("                                            </select>\n");
+          out.write("                                        </div>\n");
+          out.write("                                    </div>\n");
+          out.write("                                    <div class=\"modal-footer\">\n");
+          out.write("                                        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n");
+          out.write("                                        <input type=\"hidden\" name=\"fileID\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${item.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"/>\n");
+          out.write("                                        <input type=\"submit\" class=\"btn btn-primary\" name=\"EditorCommentEdit\" value=\"Save changes\" />\n");
+          out.write("                                    </div>\n");
+          out.write("                                </form>\n");
+          out.write("                            </div>\n");
+          out.write("                        </div>\n");
+          out.write("                    </div>\n");
+          out.write("                </div>\n");
+          out.write("\n");
+          out.write("            </div>\n");
+          out.write("        </div>\n");
+          out.write("\n");
+          out.write("    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_varStatus_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_varStatus_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${ListOfJuries}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setVar("jury");
+    _jspx_th_c_forEach_1.setVarStatus("Looper");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("\n");
+          out.write("                                                    <option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${jury.getId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\n");
+          out.write("\n");
+          out.write("                                                        ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${jury.getUsername()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(" &num; ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${jury.getEmail()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\n");
+          out.write("\n");
+          out.write("                                                    </option>\n");
+          out.write("\n");
+          out.write("                                                ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_varStatus_var_items.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
+  }
+}
