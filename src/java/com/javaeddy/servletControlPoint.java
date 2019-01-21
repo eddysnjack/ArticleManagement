@@ -100,9 +100,13 @@ public class servletControlPoint extends HttpServlet {
                             ub.setType(rs.getString("type"));
                             ub.setId(rs.getInt("id"));
                             request.getSession().setAttribute("user_bean", ub);
+                            //Theme Value'yu ayarla
+                            String nightModeValue = "dark";
+                            request.getSession().setAttribute("nightModeValue", nightModeValue);
 
                             String userType = rs.getString("type");
                             if (userType.equals("editor")) {
+//                                response.sendRedirect(request.getContextPath()+"/servletControlPoint?Select=AllEditorWaiting");
                                 getEditorAllEditorWaiting(request, response);
                             } else if (userType.equals("writer")) {
                                 getWriterAllWaiting(request, response, ub);
@@ -291,11 +295,10 @@ public class servletControlPoint extends HttpServlet {
                         + "    </div>\n"
                         + "</div>");
             }
-            
+
             //seçili buton belirlemek için etiket ekle
             request.setAttribute("SelectedButton", "YeniGelen");
-            
-            
+
             request.getRequestDispatcher("editor/getNewOnes.jsp").forward(request, response);
             //=================================END METHOD
 

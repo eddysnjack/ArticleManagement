@@ -4,7 +4,7 @@
     Author     : eddy
 --%>
 
-<%@page import="com.javaeddy.themeDarkObject"%>
+
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.javaeddy.userBean"%>
@@ -20,7 +20,7 @@
     <title>Akademik Makale Yönetim Sistemi</title>
 
 </head>
-<body class="${themeObject.BODY_BACKGROUND}">
+<body class="${themeObject.getBody_background()}">
 
 
     <%
@@ -30,6 +30,12 @@
         } else if (!ub.getType().equals("editor")) {
             response.sendRedirect(request.getContextPath() + "/forbidden.jsp");
         }
+
+        out.print(request.getRequestURL().toString());
+        out.println("<br>");
+        out.print(request.getQueryString());
+        out.println("<br>");
+        out.print(request.getHeader("referer"));
     %>
 
 
@@ -81,6 +87,7 @@
     <!-- ==================TEMA==================-->
 <div class="" style='text-align: right;'>
     <a id="changeColor" class='btn btn-dark' href="${pageContext.request.contextPath}/servletThemeSet?NightModeValue=dark"/>Night Mode is Off</a>
+    <!--<input type="button" value="Night Mode is Off" id="changeColor" class='btn btn-dark' onClick='changeThemeValue("")'/>-->
 </div>
 <!-- ==================BUTTTONLAR==================-->
 <span id="SlectedButtonSpan" style="display:none;">${SelectedButton}</span>
@@ -388,7 +395,11 @@
                                                         $("#changeColor").removeClass("btn-dark");
                                                     }
                                                     function changeThemeValue(attrbute) {
-                                                        $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?NightModeValue=' + attrbute);
+                                                        $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?NightModeValue=' + "dark",
+                                                                function () {
+                                                                    window.location.reload();
+                                                                }
+                                                        );
                                                     }
 
 
@@ -469,6 +480,6 @@
 
 
 </script>
-<span style='display:none' id='NightModeValue'>${sessionScope.NightModeValue}</span>
+<span style='display:none' id='NightModeValue'>${sessionScope.nightModeValue}</span>
 </body>
 </html>

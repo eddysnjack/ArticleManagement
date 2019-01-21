@@ -32,8 +32,12 @@ public class servletThemeSet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             if (request.getParameter("NightModeValue").equals("dark")) {
-                themeDarkObject thD = new themeDarkObject();
+                themeObject thD = new themeObject("dark");
                 request.getSession().setAttribute("themeObject", thD);
+                out.print(request.getRequestURL().toString());
+                out.println("<br>");
+                out.print(request.getHeader("referer"));
+                response.sendRedirect(request.getHeader("referer"));
                 //  request.getRequestDispatcher(request.getServletPath()).forward(request, response); //!!!! ölümcül bir hataya sebep oldu. apache durmadan hata felan verdi. pcyi yeniden başlatmak zorunda kaldım. sonsuz döngüye girdi ama nasıl girdi anlamafım :/
             } else if (request.getParameter("NightModeValue").equals("light")) {
                 themeLightObject thL = new themeLightObject();
