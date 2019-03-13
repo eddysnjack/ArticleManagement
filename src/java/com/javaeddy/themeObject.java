@@ -49,11 +49,11 @@ public class themeObject {
 
     private void setLightTheme() {
         body_background = "light-theme";
-        card_classes = "";// NO dark classes AKA LIGHT!
-        modal_content = "";// NO dark classes AKA LIGHT!
-        editor_comment = "";// NO dark classes AKA LIGHT!
-        jury_comment = "";// NO dark classes AKA LIGHT!
-        jury_selection = "";// NO dark classes AKA LIGHT!
+        card_classes = "";
+        modal_content = "";
+        editor_comment = "";
+        jury_comment = "";
+        jury_selection = "";
         comment_button = "btn-primary";
         card_button = "btn-success";
         file_button = "btn-light";

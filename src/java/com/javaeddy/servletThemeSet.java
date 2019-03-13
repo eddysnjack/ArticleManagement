@@ -31,18 +31,25 @@ public class servletThemeSet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if (request.getParameter("NightModeValue").equals("dark")) {
-                themeObject thD = new themeObject("dark");
-                request.getSession().setAttribute("themeObject", thD);
-                out.print(request.getRequestURL().toString());
-                out.println("<br>");
-                out.print(request.getHeader("referer"));
-                response.sendRedirect(request.getHeader("referer"));
+            if (request.getParameter("nightModeValue").equals("dark")) {
+                themeObject themeObj = new themeObject("dark");
+                request.getSession().setAttribute("themeObject", themeObj);
+
+                String nightModeValue = "dark";
+                request.getSession().setAttribute("nightModeValue", nightModeValue);
+
+               
+//                response.sendRedirect(request.getHeader("referer"));
                 //  request.getRequestDispatcher(request.getServletPath()).forward(request, response); //!!!! ölümcül bir hataya sebep oldu. apache durmadan hata felan verdi. pcyi yeniden başlatmak zorunda kaldım. sonsuz döngüye girdi ama nasıl girdi anlamafım :/
-            } else if (request.getParameter("NightModeValue").equals("light")) {
-                themeLightObject thL = new themeLightObject();
-                request.getSession().setAttribute("themeObject", thL);
-                //  request.getRequestDispatcher(request.getServletPath()).forward(request, response);
+            } else if (request.getParameter("nightModeValue").equals("light")) {
+                themeObject themeObj = new themeObject("light");
+                request.getSession().setAttribute("themeObject", themeObj);
+
+                String nightModeValue = "light";
+                request.getSession().setAttribute("nightModeValue", nightModeValue);
+
+               
+//                response.sendRedirect(request.getHeader("referer")); //javascript ile hallettim. gerek kalmadı :)))
             }
 
 //            request.getRequestDispatcher("/editor/getNewOnes.jsp").forward(request, response);

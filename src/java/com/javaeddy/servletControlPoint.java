@@ -101,17 +101,21 @@ public class servletControlPoint extends HttpServlet {
                             ub.setId(rs.getInt("id"));
                             request.getSession().setAttribute("user_bean", ub);
                             //Theme Value'yu ayarla
-                            String nightModeValue = "dark";
+                            themeObject themeObj = new themeObject("light");
+                            request.getSession().setAttribute("themeObject", themeObj);
+                            String nightModeValue = "light";
                             request.getSession().setAttribute("nightModeValue", nightModeValue);
 
                             String userType = rs.getString("type");
                             if (userType.equals("editor")) {
-//                                response.sendRedirect(request.getContextPath()+"/servletControlPoint?Select=AllEditorWaiting");
-                                getEditorAllEditorWaiting(request, response);
+                                //getEditorAllEditorWaiting(request, response);
+                                response.sendRedirect(request.getContextPath() + "/servletControlPoint?Select=AllEditorWaiting");//had to change this in order to gt the working link while changing theme in servletthemeset.java
                             } else if (userType.equals("writer")) {
-                                getWriterAllWaiting(request, response, ub);
+//                                getWriterAllWaiting(request, response, ub);
+                                response.sendRedirect(request.getContextPath() + "/sservletControlPoint?Select=WriterAllWaiting");//had to change this in order to gt the working link while changing theme in servletthemeset.java
                             } else if (userType.equals("jury")) {
-                                getJuryAllWaiting(request, response, ub);
+//                                getJuryAllWaiting(request, response, ub);
+                                response.sendRedirect(request.getContextPath() + "/servletControlPoint?Select=JuryAllWaiting");//had to change this in order to gt the working link while changing theme in servletthemeset.java
                             } else {
                                 response.sendRedirect("index.jsp");
                             }

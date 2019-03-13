@@ -31,11 +31,11 @@
             response.sendRedirect(request.getContextPath() + "/forbidden.jsp");
         }
 
-        out.print(request.getRequestURL().toString());
-        out.println("<br>");
-        out.print(request.getQueryString());
-        out.println("<br>");
-        out.print(request.getHeader("referer"));
+//        out.print(request.getRequestURL().toString());
+//        out.println("<br>");
+//        out.print(request.getQueryString());
+//        out.println("<br>");
+//        out.print(request.getHeader("referer"));
     %>
 
 
@@ -86,8 +86,8 @@
 
     <!-- ==================TEMA==================-->
 <div class="" style='text-align: right;'>
-    <a id="changeColor" class='btn btn-dark' href="${pageContext.request.contextPath}/servletThemeSet?NightModeValue=dark"/>Night Mode is Off</a>
-    <!--<input type="button" value="Night Mode is Off" id="changeColor" class='btn btn-dark' onClick='changeThemeValue("")'/>-->
+    <!--<a id="changeColor" class='btn btn-dark' href="${pageContext.request.contextPath}/servletThemeSet?nightModeValue=dark"/>Night Mode is Off</a>-->
+    <input type="button" value="${themeObject.getTheme_button_text()}" id="changeColor" class='btn ${themeObject.getTheme_button_class()}' onClick='changeThemeValue()'/>
 </div>
 <!-- ==================BUTTTONLAR==================-->
 <span id="SlectedButtonSpan" style="display:none;">${SelectedButton}</span>
@@ -116,16 +116,16 @@
 <div class="accordion  " id="accordionExample" style="width:90%; margin:0 auto; padding:5%;">                
     <c:forEach items="${fileListAttribute}" var="item" varStatus="LoopIndex">
 
-        <div class="card">
+        <div class="card ${themeObject.getCard_classes()}">
             <div class="card-header" id="headingOne"><!-- for cntering!!! margin:0 auto;float:none;-->
                 <h5 class="mb-0">
                     <button
-                        class="btn btn-success btn-sm cardButonu"
+                        class="btn btn-sm cardButonu ${themeObject.getCard_button()}"
                         type="button"
                         data-toggle="collapse"
                         data-target="#collapseOne${LoopIndex.count}"
                         aria-expanded="true"
-                        aria-controls="collapseOne",
+                        aria-controls="collapseOne"
 
                         >
                         ${item.getName()}
@@ -143,14 +143,14 @@
 
                 <!-- ============================Document View MODAL -->
                 <div class="whole-modal grid-item" style="display: inline-grid;grid-template-columns: 60% 40%;">
-                    <button type="button" class="btn btn-light  dosyaButonu" data-toggle="modal" data-target="#DocumentViewModal${LoopIndex.count}">
+                    <button type="button" class="btn dosyaButonu ${themeObject.getFile_button()}" data-toggle="modal" data-target="#DocumentViewModal${LoopIndex.count}">
                         <img src="${pageContext.request.contextPath}/images/icons8-document-500px.svg" title="Dosyayı Görüntüle" class="img-thumbnail rounded" style="max-width:100px;"/>
                         <br>Dosyayı Görüntüle
                     </button>
 
                     <div class="modal fade bd-example-modal-lg-deneme" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="DocumentViewModal${LoopIndex.count}">
                         <div class="modal-dialog modal-lg">
-                            <div class="modal-content" style="height: 500px;">
+                            <div class="modal-content ${themeObject.getModal_content()}" style="height: 500px;">
                                 <div class="modal-header">
                                     <h6 class="modal-title" id="exampleModalLongTitle">${item.getName()}</h6>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -220,14 +220,14 @@
                 <!-- ============================COMMENT View MODAL style="border:2px solid black;"-->
                 <div class="whole-modal grid-item" style="position:absolute;bottom:0; right:0;" >
                     <!-- Button trigger modal -->
-                    <button type="button" class=" yorumButonu btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter${LoopIndex.count}">
+                    <button type="button" class="yorumButonu btn ${themeObject.getComment_button()}" data-toggle="modal" data-target="#exampleModalCenter${LoopIndex.count}">
                         Yorumları Göster/Düzenle
                     </button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter${LoopIndex.count}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content ${themeObject.getModal_content()}">
                                 <form action="${pageContext.request.contextPath}/servletControlPoint" method="post">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLongTitle">Yorumlar</h5>
@@ -238,9 +238,9 @@
                                     <div class="modal-body">
                                         <div class="card-body" style="text-align: center;">
                                             <label for="editorComment">EDITOR COMMENT:</label><br>
-                                            <textarea class="form-control"  id="editorComment" name="editorComment">${item.getEditorComments()}</textarea><br>
+                                            <textarea class="form-control ${themeObject.getEditor_comment()}"  id="editorComment" name="editorComment">${item.getEditorComments()}</textarea><br>
                                             <label for="juryComment">JURY COMMENT:</label><br>
-                                            <textarea class="form-control"  id="juryComment" readonly>${item.getJuryComments()}</textarea>
+                                            <textarea class="form-control ${themeObject.getJury_comment()}"  id="juryComment" readonly>${item.getJuryComments()}</textarea>
 
                                         </div>
 
@@ -260,7 +260,7 @@
                                         <!-- JURI SELECTION KISMI -->
                                         <div class="container" id="jurySelectionContainer${LoopIndex.count}" style="text-align: left; display:none;">
                                             <label for="jurySelection">Juriyi Seç</label>
-                                            <select name="juryMember" id="jurySelection" class="jurySelection custom-select">
+                                            <select name="juryMember" id="jurySelection" class="jurySelection custom-select ${themeObject.getJury_selection()}">
                                                 <option value="null">Seçilmedi</option>
                                                 <c:forEach items="${ListOfJuries}" var="jury" varStatus="Looper">
 
@@ -332,9 +332,9 @@
 //-------------------------arka plan rengini değiştir
                                                     //Ready ile eşdeğer:
 //                                                    $(function controlTheme() {
-//                                                        if ($("#NightModeValue").text() === "true") {
+//                                                        if ($("#nightModeValue").text() === "true") {
 //                                                            nightOn();
-//                                                        } else if ($("#NightModeValue").text() === "false") {
+//                                                        } else if ($("#nightModeValue").text() === "false") {
 //                                                            nightOff();
 //                                                        }
 //                                                    });
@@ -394,12 +394,46 @@
                                                         $("#changeColor").addClass("btn-ligt");
                                                         $("#changeColor").removeClass("btn-dark");
                                                     }
-                                                    function changeThemeValue(attrbute) {
-                                                        $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?NightModeValue=' + "dark",
-                                                                function () {
-                                                                    window.location.reload();
-                                                                }
-                                                        );
+
+//                                                    ==============================================
+//                                                    function changeThemeValue() {
+//                                                        var themeVal = document.getElementById("nightModeValue").textContent;
+//
+//                                                        const link = document.createElement('a'); //elent oluştur
+//
+//                                                        if (themeVal == "dark") {
+//                                                            link.href = "${pageContext.request.contextPath}/servletThemeSet?nightModeValue=light";
+//                                                            event = new MouseEvent('click');
+//                                                            link.dispatchEvent(event);//linke git
+//
+//                                                            // $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?nightModeValue=light');
+//                                                            //ajax işe yaramadı çünkü sayfa yenilemesini window.location.refresh yerine servlet tarafında yaptım. aslında tarayıcının form gönderme işlemini onayla uyarısı olmasa teme değiştirme tam bir javascript işi. çok basit oluyor o vakit işler. ama o uyarı canımı sıktı :/
+//                                                        } else if (themeVal == "light") {
+//                                                            link.href = "${pageContext.request.contextPath}/servletThemeSet?nightModeValue=dark";
+//                                                            event = new MouseEvent('click');
+//                                                            link.dispatchEvent(event);
+//                                                            //$.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?nightModeValue=dark');
+//                                                        }
+//                                                    }
+//                                                    =======================================================
+                                                    function changeThemeValue() {
+                                                        var themeVal = document.getElementById("nightModeValue").textContent;
+                                                        if (themeVal == "dark") {
+                                                            $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?nightModeValue=light',
+                                                                    function () {
+                                                                        window.location = window.location.href.split("#")[0];
+                                                                    }
+                                                            );
+                                                            //ajax işe yaramadı çünkü sayfa yenilemesini window.location.refresh yerine servlet tarafında yaptım. aslında tarayıcının form gönderme işlemini onayla uyarısı olmasa teme değiştirme tam bir javascript işi. çok basit oluyor o vakit işler. ama o uyarı canımı sıktı :/
+                                                            //aslında uyarı vermeden yenileme şansımız olursa eğer.... :)
+                                                            //çalıştı :))
+                                                        } else if (themeVal == "light") {
+                                                            $.get('http://${pageContext.request.serverName}:${pageContext.request.localPort}${pageContext.request.contextPath}/servletThemeSet?nightModeValue=dark',
+                                                                    function () {
+                                                                        window.location = window.location.href.split("#")[0];
+                                                                    }
+                                                            );
+                                                        }
                                                     }
 
 
@@ -480,6 +514,6 @@
 
 
 </script>
-<span style='display:none' id='NightModeValue'>${sessionScope.nightModeValue}</span>
+<span style='display:none' id='nightModeValue'>${sessionScope.nightModeValue}</span>
 </body>
 </html>
